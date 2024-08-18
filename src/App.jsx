@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
-import "./App.css"; // Import the CSS file for animations
+import "./App.css"; // Make sure to import your CSS file
 
 const App = () => {
   const [balans, setBalans] = useState(0);
@@ -9,7 +9,7 @@ const App = () => {
     "https://m3854.myxvest.ru/Xzcoinbot-hmzmzh/balans.php?apicid="
   );
   const [cid, setCid] = useState("");
-  const [effectPosition, setEffectPosition] = useState(null);
+  const [plusOne, setPlusOne] = useState(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,13 +26,6 @@ const App = () => {
       setBalans((prev) => prev + 1);
       setKetishi((prev) => prev - 1);
 
-      // Set effect position
-      const rect = e.currentTarget.getBoundingClientRect();
-      setEffectPosition({
-        top: e.clientY - rect.top,
-        left: e.clientX - rect.left,
-      });
-
       fetch(`${url}${cid}&apibalans=${balans}`)
         .then((response) => {
           if (!response.ok) {
@@ -47,8 +40,16 @@ const App = () => {
           console.error("Error:", error);
         });
 
-      // Clear effect position after animation
-      setTimeout(() => setEffectPosition(null), 500); // Adjust the duration to match animation
+      // Get click/touch position
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      setPlusOne({ x, y });
+
+      // Hide plusOne after animation
+      setTimeout(() => {
+        setPlusOne(null);
+      }, 1000); // Match with animation duration
     }
   };
 
@@ -73,28 +74,7 @@ const App = () => {
 
   return (
     <div className="bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center">
-      <div className="bg-gradient-to-b from-gray-800 to-orange-600 max-w-md mx-auto p-4 rounded-lg shadow-lg relative">
-        <div
-          className="relative"
-          onClick={myFunction}
-          onTouchStart={myFunction} // Handle touch events
-        >
-          <img
-            src="https://cbu.uz/upload/iblock/c07/100som_2009_01.png"
-            alt="Click"
-            className="w-full cursor-pointer transform transition-transform hover:scale-95"
-          />
-          {effectPosition && (
-            <div
-              className="click-effect"
-              style={{
-                top: effectPosition.top,
-                left: effectPosition.left,
-              }}
-            />
-          )}
-        </div>
-        {/* The rest of the component remains unchanged */}
+      <div className="bg-gradient-to-b from-gray-800 to-orange-600 max-w-md mx-auto p-4 rounded-lg shadow-lg">
         <div className="flex items-center justify-between bg-gray-700 p-3 rounded-lg mb-4">
           <a href="https://t.me/Icecoinsbot" className="flex items-center">
             <img
@@ -104,13 +84,13 @@ const App = () => {
             />
             <div className="ml-2">
               <div className="text-lg font-semibold">Milliy Coin</div>
-              <div className="text-sm">🔵 What</div>
+              <div className="text-sm">🔵 Bu nima</div>
             </div>
           </a>
           <div className="text-xl">💎 Milliy Coin</div>
         </div>
 
-        <div className="flex items-center mb-4">
+        <div className="relative flex items-center mb-4">
           <img
             src="https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/image/rDtN98Qoishumwih/yellow-stars-coin_QJF3Fz_thumb.jpg"
             alt="Coin"
@@ -122,6 +102,29 @@ const App = () => {
         </div>
 
         <div className="text-lg mb-4">Ajoyib • 🏆 Milliy Coin</div>
+
+        <div
+          className="relative mb-4"
+          onClick={myFunction}
+          onTouchStart={myFunction} // Handle touch events
+        >
+          <img
+            src="https://cbu.uz/upload/iblock/c07/100som_2009_01.png"
+            alt="Click"
+            className="w-full cursor-pointer transform transition-transform hover:scale-95"
+          />
+          {plusOne && (
+            <div
+              className="plus-one"
+              style={{
+                left: plusOne.x,
+                top: plusOne.y,
+              }}
+            >
+              +1
+            </div>
+          )}
+        </div>
 
         <div className="flex justify-between items-center bg-gray-600 p-3 rounded-lg mb-4">
           <div className="flex items-center">
