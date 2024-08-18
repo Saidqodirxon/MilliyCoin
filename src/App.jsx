@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
-import "./App.css"; // Assuming you put your Tailwind styles in App.css
 
 const App = () => {
   const [balans, setBalans] = useState(0);
@@ -58,16 +57,16 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-black text-gray-200 min-h-screen flex items-center justify-center">
-      <div className="bg-gradient-to-b from-black to-orange-500 max-w-md mx-auto p-6 rounded-lg shadow-lg">
-        <div className="flex items-center justify-between bg-gray-700 p-4 rounded-lg mb-6">
+    <div className="bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center">
+      <div className="bg-gradient-to-b from-gray-800 to-orange-600 max-w-md mx-auto p-4 rounded-lg shadow-lg">
+        <div className="flex items-center justify-between bg-gray-700 p-3 rounded-lg mb-4">
           <a href="https://t.me/Icecoinsbot" className="flex items-center">
             <img
               src="https://web.telegram.org/a/icon-192x192.png"
               alt="Telegram"
-              className="bg-black"
+              className="w-8 h-8"
             />
-            <div>
+            <div className="ml-2">
               <div className="text-lg font-semibold">Ice Coin</div>
               <div className="text-sm">🔵 What</div>
             </div>
@@ -75,16 +74,16 @@ const App = () => {
           <div className="text-xl">💎 Ice Coin</div>
         </div>
 
-        <div className="flex items-center mb-6">
-          <img src="img/1tyn2.png" alt="Coin" className="w-9 h-9 mr-4" />
-          <div className="text-4xl" id="balans">
+        <div className="flex items-center mb-4">
+          <img src="img/1tyn2.png" alt="Coin" className="w-8 h-8 mr-3" />
+          <div className="text-3xl font-bold" id="balans">
             {balans}
           </div>
         </div>
 
-        <div className="text-lg mb-6">Excellent • 🏆 Ice Coin</div>
+        <div className="text-lg mb-4">Excellent • 🏆 Ice Coin</div>
 
-        <div className="mb-6">
+        <div className="mb-4">
           <img
             src="https://cbu.uz/upload/iblock/c07/100som_2009_01.png"
             alt="Click"
@@ -93,35 +92,35 @@ const App = () => {
           />
         </div>
 
-        <div className="flex justify-between items-center bg-gray-600 p-4 rounded-lg mb-6">
+        <div className="flex justify-between items-center bg-gray-600 p-3 rounded-lg mb-4">
           <div className="flex items-center">
-            <div className="text-3xl mr-4">⚡</div>
+            <div className="text-2xl mr-3">⚡</div>
             <div className="flex flex-col items-center">
-              <div className="text-2xl" id="ketishi">
+              <div className="text-xl font-semibold" id="ketishi">
                 {ketishi}
               </div>
-              <div className="text-sm" id="kelishi">
+              <div className="text-xs" id="kelishi">
                 /5000
               </div>
             </div>
           </div>
           <div className="flex">
-            <div className="bg-gray-500 text-center rounded-lg px-4 py-2 mr-2">
-              <div className="text-xl">🔒</div>
-              <div className="text-xs">Soon</div>
+            <div className="bg-gray-500 text-center rounded-lg px-3 py-1 mr-1 text-xs">
+              <div className="text-lg">🔒</div>
+              <div>Soon</div>
             </div>
-            <div className="bg-gray-500 text-center rounded-lg px-4 py-2 mr-2">
-              <div className="text-xl">🔒</div>
-              <div className="text-xs">Soon</div>
+            <div className="bg-gray-500 text-center rounded-lg px-3 py-1 mr-1 text-xs">
+              <div className="text-lg">🔒</div>
+              <div>Soon</div>
             </div>
-            <div className="bg-gray-500 text-center rounded-lg px-4 py-2">
-              <div className="text-xl">🔒</div>
-              <div className="text-xs">Soon</div>
+            <div className="bg-gray-500 text-center rounded-lg px-3 py-1 text-xs">
+              <div className="text-lg">🔒</div>
+              <div>Soon</div>
             </div>
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-gray-400 to-gray-200 h-4 rounded-lg"></div>
+        <div className="bg-gradient-to-r from-gray-600 to-gray-300 h-3 rounded-lg"></div>
       </div>
     </div>
   );
