@@ -67,21 +67,25 @@ const App = () => {
               className="w-8 h-8"
             />
             <div className="ml-2">
-              <div className="text-lg font-semibold">Ice Coin</div>
+              <div className="text-lg font-semibold">Milliy Coin</div>
               <div className="text-sm">🔵 What</div>
             </div>
           </a>
-          <div className="text-xl">💎 Ice Coin</div>
+          <div className="text-xl">💎 Milliy Coin</div>
         </div>
 
         <div className="flex items-center mb-4">
-          <img src="img/1tyn2.png" alt="Coin" className="w-8 h-8 mr-3" />
+          <img
+            src="https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/image/rDtN98Qoishumwih/yellow-stars-coin_QJF3Fz_thumb.jpg"
+            alt="Coin"
+            className="w-8 h-8 mr-3"
+          />
           <div className="text-3xl font-bold" id="balans">
             {balans}
           </div>
         </div>
 
-        <div className="text-lg mb-4">Excellent • 🏆 Ice Coin</div>
+        <div className="text-lg mb-4">Ajoyib • 🏆 Milliy Coin</div>
 
         <div className="mb-4">
           <img
