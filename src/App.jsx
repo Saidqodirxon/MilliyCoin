@@ -5,6 +5,7 @@ import "./App.css"; // Make sure to import your CSS file
 const App = () => {
   const [balans, setBalans] = useState(0);
   const [ketishi, setKetishi] = useState(4000);
+  // eslint-disable-next-line no-unused-vars
   const [url, setUrl] = useState(
     "https://m3854.myxvest.ru/Xzcoinbot-hmzmzh/balans.php?apicid="
   );
