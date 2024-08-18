@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
+import "./App.css"; // Import the CSS file for animations
 
 const App = () => {
   const [balans, setBalans] = useState(0);
@@ -8,6 +9,7 @@ const App = () => {
     "https://m3854.myxvest.ru/Xzcoinbot-hmzmzh/balans.php?apicid="
   );
   const [cid, setCid] = useState("");
+  const [effectPosition, setEffectPosition] = useState(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,10 +21,17 @@ const App = () => {
     return () => clearInterval(interval);
   }, [ketishi]);
 
-  const myFunction = () => {
+  const myFunction = (e) => {
     if (ketishi > 0) {
       setBalans((prev) => prev + 1);
       setKetishi((prev) => prev - 1);
+
+      // Set effect position
+      const rect = e.currentTarget.getBoundingClientRect();
+      setEffectPosition({
+        top: e.clientY - rect.top,
+        left: e.clientX - rect.left,
+      });
 
       fetch(`${url}${cid}&apibalans=${balans}`)
         .then((response) => {
@@ -37,6 +46,9 @@ const App = () => {
         .catch((error) => {
           console.error("Error:", error);
         });
+
+      // Clear effect position after animation
+      setTimeout(() => setEffectPosition(null), 500); // Adjust the duration to match animation
     }
   };
 
@@ -61,7 +73,28 @@ const App = () => {
 
   return (
     <div className="bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center">
-      <div className="bg-gradient-to-b from-gray-800 to-orange-600 max-w-md mx-auto p-4 rounded-lg shadow-lg">
+      <div className="bg-gradient-to-b from-gray-800 to-orange-600 max-w-md mx-auto p-4 rounded-lg shadow-lg relative">
+        <div
+          className="relative"
+          onClick={myFunction}
+          onTouchStart={myFunction} // Handle touch events
+        >
+          <img
+            src="https://cbu.uz/upload/iblock/c07/100som_2009_01.png"
+            alt="Click"
+            className="w-full cursor-pointer transform transition-transform hover:scale-95"
+          />
+          {effectPosition && (
+            <div
+              className="click-effect"
+              style={{
+                top: effectPosition.top,
+                left: effectPosition.left,
+              }}
+            />
+          )}
+        </div>
+        {/* The rest of the component remains unchanged */}
         <div className="flex items-center justify-between bg-gray-700 p-3 rounded-lg mb-4">
           <a href="https://t.me/Icecoinsbot" className="flex items-center">
             <img
@@ -89,18 +122,6 @@ const App = () => {
         </div>
 
         <div className="text-lg mb-4">Ajoyib • 🏆 Milliy Coin</div>
-
-        <div
-          className="mb-4"
-          onClick={myFunction}
-          onTouchStart={myFunction} // Handle touch events
-        >
-          <img
-            src="https://cbu.uz/upload/iblock/c07/100som_2009_01.png"
-            alt="Click"
-            className="w-full cursor-pointer transform transition-transform hover:scale-95"
-          />
-        </div>
 
         <div className="flex justify-between items-center bg-gray-600 p-3 rounded-lg mb-4">
           <div className="flex items-center">
