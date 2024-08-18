@@ -44,15 +44,18 @@ const App = () => {
     const handleKeydown = (e) => e.preventDefault();
     const handleContextMenu = (e) => e.preventDefault();
     const handleMousedown = (e) => e.preventDefault();
+    const handleTouchstart = (e) => e.preventDefault();
 
     document.body.addEventListener("keydown", handleKeydown);
     document.body.addEventListener("contextmenu", handleContextMenu);
     document.body.addEventListener("mousedown", handleMousedown);
+    document.body.addEventListener("touchstart", handleTouchstart);
 
     return () => {
       document.body.removeEventListener("keydown", handleKeydown);
       document.body.removeEventListener("contextmenu", handleContextMenu);
       document.body.removeEventListener("mousedown", handleMousedown);
+      document.body.removeEventListener("touchstart", handleTouchstart);
     };
   }, []);
 
@@ -87,12 +90,15 @@ const App = () => {
 
         <div className="text-lg mb-4">Ajoyib • 🏆 Milliy Coin</div>
 
-        <div className="mb-4">
+        <div
+          className="mb-4"
+          onClick={myFunction}
+          onTouchStart={myFunction} // Handle touch events
+        >
           <img
             src="https://cbu.uz/upload/iblock/c07/100som_2009_01.png"
             alt="Click"
             className="w-full cursor-pointer transform transition-transform hover:scale-95"
-            onClick={myFunction}
           />
         </div>
 
