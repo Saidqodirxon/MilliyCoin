@@ -5,7 +5,6 @@ import "./App.css"; // Make sure to import your CSS file
 const App = () => {
   const [balans, setBalans] = useState(0);
   const [ketishi, setKetishi] = useState(4000);
-  // eslint-disable-next-line no-unused-vars
   const [url, setUrl] = useState(
     "https://m3854.myxvest.ru/Xzcoinbot-hmzmzh/balans.php?apicid="
   );
@@ -74,7 +73,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center">
+    <div className="bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center select-none">
       <div className="bg-gradient-to-b from-gray-800 to-orange-600 max-w-md mx-auto p-4 rounded-lg shadow-lg">
         <div className="flex items-center justify-between bg-gray-700 p-3 rounded-lg mb-4">
           <a href="https://t.me/Icecoinsbot" className="flex items-center">
@@ -116,10 +115,11 @@ const App = () => {
           />
           {plusOne && (
             <div
-              className="plus-one"
+              className="absolute bg-red-500 text-white text-xl font-bold rounded-full p-2"
               style={{
                 left: plusOne.x,
                 top: plusOne.y,
+                transform: "translate(-50%, -50%)",
               }}
             >
               +1
