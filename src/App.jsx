@@ -153,7 +153,7 @@ const App = () => {
           )}
         </div>
 
-        <div className="flex justify-between items-center bg-gray-600 p-3 rounded-lg mb-4">
+        <div className="flex justify-between gap-2 items-center bg-gray-600 p-3 rounded-lg mb-4 mt-[10%] ">
           <div className="flex items-center">
             <div className="text-2xl mr-3">⚡</div>
             <div className="flex flex-col items-center">
@@ -165,7 +165,7 @@ const App = () => {
               </div>
             </div>
           </div>
-          <div className="flex">
+          <div className="flex  justify-between gap-1">
             <div className="bg-gray-500 text-center rounded-lg px-3 py-1 mr-1 text-xs">
               <div className="text-lg">
                 <FaHome className="text-center flex ml-[25%]" />
