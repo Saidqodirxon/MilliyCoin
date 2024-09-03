@@ -16,7 +16,6 @@ const App = () => {
   );
   const [cid, setCid] = useState("");
   const [plusOne, setPlusOne] = useState(null);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -85,27 +84,11 @@ const App = () => {
     return text;
   }
 
-  useEffect(() => {
-    // Ekran kengligini tekshirish
-    const handleResize = () => {
-      if (window.innerWidth > 480) {
-        setIsMobile(true);
-        console.log("Ekran katta");
-      } else {
-        setIsMobile(false);
-        console.log("Ekran kichik ");
-      }
-    };
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-    // Birinchi marta yuklanganda tekshirish
-    handleResize();
-
-    // Har safar ekran o'lchami o'zgarganda tekshirish
-    window.addEventListener("resize", handleResize);
-
-    // Event listenerni tozalash
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const isAndroid = /android/i.test(userAgent);
+  const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+  const isMobile = isAndroid || isIOS;
 
   if (isMobile) {
     return (
@@ -119,6 +102,7 @@ const App = () => {
       </div>
     );
   }
+
   return (
     <div className="bg-gray-900 text-gray-100 flex items-center justify-center select-none">
       <div className="bg-gradient-to-b min-h-screen max-h-[100vh] max-w-[100vw] from-gray-800 to-blue-600 mx-auto p-4 rounded-lg shadow-lg">
