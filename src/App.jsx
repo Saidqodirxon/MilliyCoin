@@ -16,6 +16,7 @@ const App = () => {
   );
   const [cid, setCid] = useState("");
   const [plusOne, setPlusOne] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -84,6 +85,40 @@ const App = () => {
     return text;
   }
 
+  useEffect(() => {
+    // Ekran kengligini tekshirish
+    const handleResize = () => {
+      if (window.innerWidth > 480) {
+        setIsMobile(true);
+        console.log("Ekran katta");
+      } else {
+        setIsMobile(false);
+        console.log("Ekran kichik ");
+      }
+    };
+
+    // Birinchi marta yuklanganda tekshirish
+    handleResize();
+
+    // Har safar ekran o'lchami o'zgarganda tekshirish
+    window.addEventListener("resize", handleResize);
+
+    // Event listenerni tozalash
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  if (isMobile) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+        <img
+          src="https://static.vecteezy.com/system/resources/thumbnails/012/042/292/small/warning-sign-icon-transparent-background-free-png.png"
+          alt="Warning"
+          className="w-40 h-40 mb-4"
+        />
+        <p className="text-lg text-red-600 font-bold">Mumkin emas</p>
+      </div>
+    );
+  }
   return (
     <div className="bg-gray-900 text-gray-100 flex items-center justify-center select-none">
       <div className="bg-gradient-to-b min-h-screen max-h-[100vh] max-w-[100vw] from-gray-800 to-blue-600 mx-auto p-4 rounded-lg shadow-lg">
@@ -165,30 +200,30 @@ const App = () => {
               </div>
             </div>
           </div>
-          <div className="flex  justify-between gap-1">
-            <div className="bg-gray-500 text-center rounded-lg px-3 py-1 mr-1 text-xs">
+          <div className="flex justify-between gap-1">
+            <div className="bg-gray-500 text-center rounded-lg px-1 py-1 w-[25%] text-xs">
               <div className="text-lg">
-                <FaHome className="text-center flex ml-[25%]" />
-                <p className="text-sm mt-2">Asosiy</p>
+                <FaHome className="text-center text-xs flex ml-[25%]" />
+                <p className="text-xs mt-2 w-[]">Asosiy</p>
               </div>
             </div>
 
-            <div className="bg-gray-500 text-center rounded-lg px-3 py-1 mr-1 text-xs">
-              <div className="text-lg">
-                <AiFillDollarCircle className="text-center flex ml-[25%]" />
-                <p className="text-sm mt-2">Olish</p>
+            <div className="bg-gray-500 text-center rounded-lg px-1 py-1 w-[25%] text-xs">
+              <div className="text-lg gap-2">
+                <AiFillDollarCircle className="text-center text-xs flex ml-[25%]" />
+                <p className="text-xs mt-2 ">Olish</p>
               </div>
             </div>
-            <div className="bg-gray-500 text-center rounded-lg px-3 py-1 mr-1 text-xs">
+            <div className="bg-gray-500 text-center rounded-lg px-1 py-1 w-[25%] text-xs">
               <div className="text-lg">
-                <MdGroups2 className="text-center flex ml-[25%]" />
-                <p className="text-sm mt-2">Tarqat</p>
+                <MdGroups2 className="text-center text-xs flex ml-[25%]" />
+                <p className="text-xs mt-2 ">Tarqat</p>
               </div>
             </div>
-            <div className="bg-gray-500 text-center rounded-lg px-3 py-1 mr-1 text-xs">
+            <div className="bg-gray-500 text-center rounded-lg px-1 py-1 w-[25%] text-xs">
               <div className="text-lg">
-                <IoLogoGameControllerA className="text-center flex ml-[25%]" />
-                <p className="text-sm mt-2">O'yin</p>
+                <IoLogoGameControllerA className="text-center text-xs flex ml-[25%]" />
+                <p className="text-xs mt-2 ">O'yin</p>
               </div>
             </div>
           </div>
