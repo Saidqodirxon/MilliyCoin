@@ -1,6 +1,12 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import "./App.css"; // Make sure to import your CSS file
+import { AiFillDollarCircle } from "react-icons/ai";
+import { MdGroups2 } from "react-icons/md";
+import { IoLogoGameControllerA } from "react-icons/io";
+import { PiHandTapFill } from "react-icons/pi";
+import { FaHome } from "react-icons/fa";
 
 const App = () => {
   const [balans, setBalans] = useState(0);
@@ -71,37 +77,57 @@ const App = () => {
       document.body.removeEventListener("touchstart", handleTouchstart);
     };
   }, []);
+  function truncateText(text) {
+    if (text.length > 7) {
+      return text.slice(0, 7) + "...";
+    }
+    return text;
+  }
 
   return (
     <div className="bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center select-none">
-      <div className="bg-gradient-to-b from-gray-800 to-orange-600 max-w-md mx-auto p-4 rounded-lg shadow-lg">
-        <div className="flex items-center justify-between bg-gray-700 p-3 rounded-lg mb-4">
-          <a href="https://t.me/Icecoinsbot" className="flex items-center">
+      <div className="bg-gradient-to-b from-gray-800 to-blue-600 max-w-md mx-auto p-4 rounded-lg shadow-lg">
+        <div className="flex items-center justify-between p-3 rounded-lg mb-4">
+          <a href="https://t.me/alcoderbot" className="flex items-center">
             <img
               src="https://web.telegram.org/a/icon-192x192.png"
               alt="Telegram"
               className="w-8 h-8"
             />
             <div className="ml-2">
-              <div className="text-lg font-semibold">Milliy Coin</div>
-              <div className="text-sm">🔵 Bu nima</div>
+              <div className="text-sm font-semibold">
+                {truncateText("Saidqodirxon Rahimov")}
+              </div>
             </div>
           </a>
-          <div className="text-xl">💎 Milliy Coin</div>
+          <div className="logo">
+            <h2>💎 Milliy Coin</h2>
+          </div>
+          <div className="text-sm">Haqida</div>
         </div>
 
-        <div className="relative flex items-center mb-4">
+        <div className="relative flex items-center mb-4 justify-center">
           <img
             src="https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/image/rDtN98Qoishumwih/yellow-stars-coin_QJF3Fz_thumb.jpg"
             alt="Coin"
-            className="w-8 h-8 mr-3"
+            className="w-8 h-8 mr-3 rounded-full"
           />
           <div className="text-3xl font-bold" id="balans">
             {balans}
           </div>
         </div>
 
-        <div className="text-lg mb-4">Ajoyib • 🏆 Milliy Coin</div>
+        <div className="text-sm mb-4 flex justify-center gap-2">
+          <p className="flex justify-between items-center gap-1">
+            <AiFillDollarCircle className="text-2xl text-yellow-300" />0 Nimadir
+            uroven
+          </p>
+
+          <p className="flex justify-between items-center gap-1">
+            {" "}
+            <PiHandTapFill className="text-2xl text-blue-100" /> Milliy Coin
+          </p>
+        </div>
 
         <div
           className="relative mb-4"
@@ -141,16 +167,29 @@ const App = () => {
           </div>
           <div className="flex">
             <div className="bg-gray-500 text-center rounded-lg px-3 py-1 mr-1 text-xs">
-              <div className="text-lg">🔒</div>
-              <div>Soon</div>
+              <div className="text-lg">
+                <FaHome className="text-center flex ml-[25%]" />
+                <p className="text-sm mt-2">Asosiy</p>
+              </div>
+            </div>
+
+            <div className="bg-gray-500 text-center rounded-lg px-3 py-1 mr-1 text-xs">
+              <div className="text-lg">
+                <AiFillDollarCircle className="text-center flex ml-[25%]" />
+                <p className="text-sm mt-2">Olish</p>
+              </div>
             </div>
             <div className="bg-gray-500 text-center rounded-lg px-3 py-1 mr-1 text-xs">
-              <div className="text-lg">🔒</div>
-              <div>Soon</div>
+              <div className="text-lg">
+                <MdGroups2 className="text-center flex ml-[25%]" />
+                <p className="text-sm mt-2">Tarqat</p>
+              </div>
             </div>
-            <div className="bg-gray-500 text-center rounded-lg px-3 py-1 text-xs">
-              <div className="text-lg">🔒</div>
-              <div>Soon</div>
+            <div className="bg-gray-500 text-center rounded-lg px-3 py-1 mr-1 text-xs">
+              <div className="text-lg">
+                <IoLogoGameControllerA className="text-center flex ml-[25%]" />
+                <p className="text-sm mt-2">O'yin</p>
+              </div>
             </div>
           </div>
         </div>
