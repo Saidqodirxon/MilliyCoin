@@ -86,7 +86,7 @@ const App = () => {
 
   return (
     <div className="bg-gray-900 text-gray-100 flex items-center justify-center select-none">
-      <div className="bg-gradient-to-b min-h-screen max-h-[100vh] max-w-[100vw]  from-gray-800 to-blue-600 max-w-md mx-auto p-4 rounded-lg shadow-lg">
+      <div className="bg-gradient-to-b from-gray-800 to-blue-600 max-w-md mx-auto p-4 rounded-lg shadow-lg">
         <div className="flex items-center justify-between p-3 rounded-lg mb-4">
           <a href="https://t.me/alcoderbot" className="flex items-center">
             <img
