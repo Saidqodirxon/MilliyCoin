@@ -90,7 +90,7 @@ const App = () => {
   const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
   const isMobile = isAndroid || isIOS;
 
-  if (isMobile) {
+  if (!isMobile) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
         <img
